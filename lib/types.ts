@@ -53,6 +53,7 @@ export type Post = {
   caption: string;
   image?: string;
   activityTag: ActivityTag;
+  location?: string;
   createdAt: string;
   reactions: number;
   reactedByMe?: boolean;

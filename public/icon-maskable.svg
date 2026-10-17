@@ -1,0 +1,18 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF8FC6"/>
+      <stop offset="0.55" stop-color="#FF6FB5"/>
+      <stop offset="1" stop-color="#FF4FA3"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.42" cy="0.36" r="0.7">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#g)"/>
+  <rect width="512" height="512" fill="url(#glow)"/>
+  <!-- signature double-sparkle (matches the in-app spark identity) -->
+  <path d="M268 150 C 282 234 296 248 380 262 C 296 276 282 290 268 374 C 254 290 240 276 156 262 C 240 248 254 234 268 150 Z" fill="#FFFFFF"/>
+  <path d="M176 138 C 181 172 188 179 222 184 C 188 189 181 196 176 230 C 171 196 164 189 130 184 C 164 179 171 172 176 138 Z" fill="#FFFFFF" opacity="0.95"/>
+</svg>

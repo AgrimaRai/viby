@@ -1,65 +1,107 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
+import { DeviceFrame } from "@/components/shell/DeviceFrame";
+import { Logo } from "@/components/common/Logo";
+import { Button } from "@/components/ui/button";
+import { Chip } from "@/components/ui/chip";
+
+const previews = [
+  { emoji: "📷", label: "Photo walks", tone: "lavender" as const },
+  { emoji: "🏃", label: "Sunrise runs", tone: "blush" as const },
+  { emoji: "🍵", label: "Matcha mornings", tone: "powder" as const },
+  { emoji: "🚀", label: "Founder coffees", tone: "lavender" as const },
+];
+
+export default function Landing() {
+  const router = useRouter();
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <DeviceFrame>
+      <div className="flex h-full flex-col px-7 pb-10 pt-16">
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Logo size={30} />
+        </motion.div>
+
+        <div className="flex flex-1 flex-col justify-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, type: "spring", stiffness: 200, damping: 18 }}
+            className="mb-8 h-28 w-28 self-start"
+          >
+            <div className="grid h-full w-full place-items-center rounded-[34px] gradient-lilac shadow-soft-lg animate-[breathe_3s_ease-in-out_infinite]">
+              <Sparkles className="h-14 w-14 text-lavender-3" fill="currentColor" strokeWidth={1.5} />
+            </div>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="font-display text-[40px] font-semibold leading-[1.08] tracking-tight text-ink"
+          >
+            Find your
+            <br />
+            <span className="text-gradient">people.</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.32, duration: 0.6 }}
+            className="mt-4 max-w-[19rem] text-[17px] leading-relaxed text-ink-soft"
+          >
+            Bond over the hobbies you love, share your real life, and meet people
+            nearby who vibe like you.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.44, duration: 0.6 }}
+            className="mt-7 flex flex-wrap gap-2"
+          >
+            {previews.map((p, i) => (
+              <motion.span
+                key={p.label}
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 3, repeat: Infinity, delay: i * 0.3 }}
+              >
+                <Chip tone={p.tone}>
+                  <span>{p.emoji}</span>
+                  {p.label}
+                </Chip>
+              </motion.span>
+            ))}
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.56, duration: 0.6 }}
+          className="space-y-3"
+        >
+          <Button size="lg" className="w-full" onClick={() => router.push("/login")}>
+            Get started
+          </Button>
+          <p className="text-center text-sm text-ink-faint">
+            Already have an account?{" "}
+            <button
+              onClick={() => router.push("/login")}
+              className="font-medium text-lavender-3"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+              Sign in
+            </button>
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        </motion.div>
+      </div>
+    </DeviceFrame>
   );
 }

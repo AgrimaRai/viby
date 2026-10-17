@@ -2,20 +2,23 @@
 
 /* ───────────────────────── Soft Lilac design system ───────────────────────── */
 @theme {
-  --color-cream: #fbf8ff;
-  --color-cream-2: #f3eefc;
-  --color-lavender: #c9b8ff;
-  --color-lavender-2: #a88ff5;
-  --color-lavender-3: #8a6df0;
-  --color-blush: #ffc9de;
-  --color-blush-2: #ff9ec4;
-  --color-powder: #b8d8ff;
-  --color-powder-2: #8fbdff;
-  --color-lilac: #e9deff;
-  --color-mint: #c4f0e0;
+  /* Bubblegum-pink-on-white brand identity. #FF6FB5 is the signature.
+     (Token names keep the `lavender`/`lilac` keys so every component picks
+      up the new palette without renaming — values are now pink.) */
+  --color-cream: #fff8fb;        /* soft blush-white background */
+  --color-cream-2: #ffeff7;
+  --color-lavender: #ff6fb5;     /* ★ BRAND bubblegum pink — dominant color */
+  --color-lavender-2: #ff8fc8;   /* soft pink (mid) */
+  --color-lavender-3: #e0388a;   /* deep pink for text/icons on white */
+  --color-blush: #ffc7e7;        /* cotton candy accent */
+  --color-blush-2: #ff4fa3;      /* deep pink accent */
+  --color-powder: #ffd9ec;       /* soft pink accent */
+  --color-powder-2: #e0388a;
+  --color-lilac: #ffe3f1;        /* light pink surface / chip fill */
+  --color-mint: #ffe0ef;         /* soft pink accent */
   --color-ink: #2e2a3a;
   --color-ink-soft: #6b6580;
-  --color-ink-faint: #a8a2bb;
+  --color-ink-faint: #b0a6b0;
 
   --font-display: var(--font-display), "Sora", system-ui, sans-serif;
   --font-sans: var(--font-sans), "Inter", system-ui, sans-serif;
@@ -23,9 +26,9 @@
   --radius-card: 28px;
   --radius-sheet: 32px;
 
-  --shadow-soft: 0 18px 50px -18px rgba(168, 143, 245, 0.45);
-  --shadow-soft-lg: 0 30px 80px -24px rgba(168, 143, 245, 0.5);
-  --shadow-blush: 0 18px 50px -18px rgba(255, 158, 196, 0.45);
+  --shadow-soft: 0 18px 50px -18px rgba(255, 111, 181, 0.4);
+  --shadow-soft-lg: 0 30px 80px -24px rgba(255, 111, 181, 0.48);
+  --shadow-blush: 0 18px 50px -18px rgba(255, 79, 163, 0.4);
 
   --animate-float: float 7s ease-in-out infinite;
   --animate-breathe: breathe 2.4s ease-in-out infinite;
@@ -61,22 +64,23 @@ body {
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* Signature gradient surfaces */
+/* Signature bubblegum-pink-on-white surfaces */
 .bg-aurora {
   background:
-    radial-gradient(120% 80% at 10% 0%, #f0e6ff 0%, transparent 55%),
-    radial-gradient(120% 90% at 90% 10%, #ffe3ef 0%, transparent 50%),
-    radial-gradient(140% 100% at 50% 100%, #dcebff 0%, transparent 55%),
+    radial-gradient(120% 80% at 12% 0%, #ffe1f0 0%, transparent 55%),
+    radial-gradient(115% 85% at 90% 6%, #ffe9f3 0%, transparent 52%),
+    radial-gradient(135% 95% at 50% 100%, #ffdeed 0%, transparent 55%),
+    radial-gradient(90% 60% at 85% 100%, #fff0f6 0%, transparent 45%),
     var(--color-cream);
 }
 .gradient-lilac {
-  background: linear-gradient(135deg, #e9deff 0%, #ffe3ef 48%, #dcebff 100%);
+  background: linear-gradient(135deg, #ffe3f1 0%, #fff0f7 50%, #ffd9ec 100%);
 }
 .gradient-primary {
-  background: linear-gradient(135deg, #a88ff5 0%, #c9b8ff 50%, #ff9ec4 120%);
+  background: linear-gradient(135deg, #ff8fc6 0%, #ff6fb5 56%, #ff4fa3 120%);
 }
 .text-gradient {
-  background: linear-gradient(120deg, #8a6df0 0%, #ff9ec4 90%);
+  background: linear-gradient(120deg, #ff4fa3 0%, #ff85c1 95%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -98,7 +102,7 @@ body {
 
 /* Shimmer skeleton */
 .shimmer {
-  background: linear-gradient(90deg, #efe9fb 25%, #f7f3ff 50%, #efe9fb 75%);
+  background: linear-gradient(90deg, #ffe6f2 25%, #fff2f8 50%, #ffe6f2 75%);
   background-size: 800px 100%;
   animation: var(--animate-shimmer);
 }
